@@ -1,6 +1,6 @@
 {
   pkgs ? import <nixpkgs> {},
-  rgbds ? pkgs.callPackage ./rgbds.nix {inherit pkgs;},
+  rgbds ? pkgs.callPackage ../rgbds/rgbds.nix {inherit pkgs;},
 }: let
 
   src_rev = "171e2c204f9c1ff8e577ca387a4bbb009e130843";

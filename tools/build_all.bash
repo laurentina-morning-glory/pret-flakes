@@ -20,3 +20,8 @@ nix-build
 nix-build '.#pokeblue'
 nix-build '.#pokeblue-debug'
 popd >/dev/null
+
+pushd pokeyellow >/dev/null
+nix-build
+nix-build '.#pokeyellow-debug'
+popd >/dev/null

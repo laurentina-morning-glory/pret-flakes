@@ -11,7 +11,7 @@
 
     pkgs = inputs.nixpkgs.legacyPackages."${system}";
 
-    rgbds = pkgs.callPackage ./rgbds.nix {inherit pkgs;};
+    rgbds = pkgs.callPackage ../rgbds/rgbds.nix {inherit pkgs;};
 
     pokered_packages = pkgs.callPackage ./pokered.nix {inherit pkgs rgbds;};
 
