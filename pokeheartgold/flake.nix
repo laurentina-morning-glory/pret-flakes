@@ -11,9 +11,9 @@
 
     pkgs = inputs.nixpkgs.legacyPackages."${system}";
 
-    metroskrew = pkgs.callPackage ../metroskrew.nix {inherit pkgs;};
+    metroskrew = pkgs.callPackage ../metroskrew/metroskrew.nix {inherit pkgs;};
 
-    mw-libraries = pkgs.callPackage ../mw-libraries.nix {inherit pkgs;};
+    mw-libraries = pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;};
 
     pokeheartgold_packages = pkgs.callPackage ./pokeheartgold.nix {inherit pkgs metroskrew mw-libraries;};
 

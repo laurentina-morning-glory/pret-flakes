@@ -2,8 +2,8 @@
 
 {
   pkgs ? import <nixpkgs> {},
-  metroskrew ? pkgs.callPackage ../metroskrew.nix {inherit pkgs;},
-  mw-libraries ? pkgs.callPackage ../mw-libraries.nix {inherit pkgs;},
+  metroskrew ? pkgs.callPackage ../metroskrew/metroskrew.nix {inherit pkgs;},
+  mw-libraries ? pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;},
 }: let
 
   nitro-dwc = pkgs.fetchFromGitHub {
