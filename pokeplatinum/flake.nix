@@ -2,7 +2,7 @@
   description = "pret/pokeplatinum";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
   };
 
   outputs = inputs: let
@@ -36,6 +36,7 @@
       shellHook = ''
         export METROSKREW="${metroskrew}"
         export MW_LIBRARIES="${mw-libraries}"
+        export LIBPNG="${pkgs.libpng.dev}"
       '';
     };
 

@@ -87,6 +87,8 @@
     version = "49f78f3";
     src = src;
 
+    doCheck = true;
+
     nativeBuildInputs = [
       pkgs.python3
       pkgs.flex
@@ -99,7 +101,7 @@
       pkgs.ninja
     ];
 
-    patchPhase = ''
+    postPatch = ''
 
       mkdir -p tools/metroskrew
       cp -r ${metroskrew}/* tools/metroskrew
@@ -156,6 +158,10 @@
 
     buildPhase = ''
       make rom
+    '';
+
+    checkPhase = ''
+      make check
     '';
 
     installPhase = ''
