@@ -6,6 +6,13 @@ nix-build() {
 	nix build --no-link --quiet --print-out-paths "$@"
 }
 
+pushd pokegold >/dev/null
+nix-build
+nix-build '.#pokesilver'
+nix-build '.#pokegold-debug'
+nix-build '.#pokesilver-debug'
+popd >/dev/null
+
 pushd pokeheartgold >/dev/null
 nix-build
 nix-build '.#pokesoulsilver'
