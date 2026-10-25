@@ -6,29 +6,29 @@ nix-build() {
 	nix build --no-link --quiet --print-out-paths "$@"
 }
 
-pushd pokegold >/dev/null
-nix-build
-nix-build '.#pokesilver'
-nix-build '.#pokegold-debug'
-nix-build '.#pokesilver-debug'
-popd >/dev/null
+installables=(
 
-pushd pokeheartgold >/dev/null
-nix-build
-nix-build '.#pokesoulsilver'
-popd >/dev/null
+	'.#metroskrew'
+	'.#mw-libraries'
+	'.#rgbds'
 
-pushd pokeplatinum >/dev/null
-nix-build
-popd >/dev/null
+	'.#pokegold'
+	'.#pokesilver'
+	'.#pokegold-debug'
+	'.#pokesilver-debug'
 
-pushd pokered >/dev/null
-nix-build
-nix-build '.#pokeblue'
-nix-build '.#pokeblue-debug'
-popd >/dev/null
+	'.#pokeheartgold'
+	'.#pokesoulsilver'
 
-pushd pokeyellow >/dev/null
-nix-build
-nix-build '.#pokeyellow-debug'
-popd >/dev/null
+	'.#pokeplatinum'
+
+	'.#pokered'
+	'.#pokeblue'
+	'.#pokeblue-debug'
+
+	'.#pokeyellow'
+	'.#pokeyellow-debug'
+
+);
+
+nix-build ${installables[@]}

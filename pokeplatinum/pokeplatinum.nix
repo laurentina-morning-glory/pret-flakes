@@ -171,5 +171,45 @@
 
   };
 
+  shell = pkgs.mkShell {
+
+    inputsFrom = [
+      pokeplatinum
+    ];
+
+    packages = [
+      pkgs.pre-commit
+      # clang-format
+      pkgs.clang-tools
+
+      metroskrew
+      mw-libraries
+    ];
+
+    # Use `pret_pokeplatinum_install_metroskrew` to copy the metroskrew binaries.
+    #
+    # Use the `meson` alias to invoke the local meson python script.
+    # e.g., `meson --reconfigure build`
+    shellHook = ''
+      export METROSKREW="${metroskrew}"
+      export MW_LIBRARIES="${mw-libraries}"
+      export LIBPNG="${pkgs.libpng.dev}"
+
+      pret_pokeplatinum_install_metroskrew() {
+        mkdir -p tools/metroskrew
+        chmod -R +w tools/metroskrew
+        cp -r "$METROSKREW"/* tools/metroskrew
+        chmod -R +w tools/metroskrew
+        cp -r "$MW_LIBRARIES"/* tools/metroskrew
+        chmod -R +w tools/metroskrew
+      }
+
+      meson() {
+        ./subprojects/meson-1.12.0/meson.py "$@"
+      }
+    '';
+
+  };
+
 in
-  pokeplatinum
+  {inherit pokeplatinum shell;}
