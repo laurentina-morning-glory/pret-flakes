@@ -11,22 +11,6 @@
 
     pkgs = inputs.nixpkgs.legacyPackages."${system}";
 
-    writeMesenWrapper = poke: pkgs.writeShellScript "mesen-wrapper" ''
-      exec ${pkgs.mesen}/bin/Mesen ${poke}/*.gbc
-    '';
-
-    writeDesmumeWrapper = poke: pkgs.writeShellScript "desmume-wrapper" ''
-      exec ${pkgs.desmume}/bin/desmume ${poke}/*.nds
-    '';
-
-    createMesenWrapperApp = poke: let
-      script = writeMesenWrapper poke;
-    in { type = "app"; program = "${script}"; };
-
-    createDesmumeWrapperApp = poke: let
-      script = writeDesmumeWrapper poke;
-    in { type = "app"; program = "${script}"; };
-
     rgbds = pkgs.callPackage ./rgbds/rgbds.nix {inherit pkgs;};
 
     metroskrew = pkgs.callPackage ./metroskrew/metroskrew.nix {inherit pkgs;};
@@ -89,32 +73,6 @@
       pokered = pkgs.mkShell {
         inputsFrom = [ pokered.pokered ];
       };
-
-    };
-
-    apps."${system}" = {
-
-      # pokegold
-      pokegold = createMesenWrapperApp pokegold.pokegold;
-      pokesilver = createMesenWrapperApp pokegold.pokesilver;
-      pokegold-debug = createMesenWrapperApp pokegold.pokegold-debug;
-      pokesilver-debug = createMesenWrapperApp pokegold.pokesilver-debug;
-
-      # pokeheartgold
-      pokeheartgold = createDesmumeWrapperApp pokeheartgold.pokeheartgold;
-      pokesoulsilver = createDesmumeWrapperApp pokeheartgold.pokesoulsilver;
-
-      # pokeplatinum
-      pokeplatinum = createDesmumeWrapperApp pokeplatinum.pokeplatinum;
-
-      # pokered
-      pokered = createMesenWrapperApp pokered.pokered;
-      pokeblue = createMesenWrapperApp pokered.pokeblue;
-      pokeblue-debug = createMesenWrapperApp pokered.pokeblue-debug;
-
-      # pokeyellow
-      pokeyellow = createMesenWrapperApp pokeyellow.pokeyellow;
-      pokeyellow-debug = createMesenWrapperApp pokeyellow.pokeyellow-debug;
 
     };
 
