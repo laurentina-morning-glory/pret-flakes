@@ -15,44 +15,28 @@
 
     metroskrew = pkgs.callPackage ./metroskrew/metroskrew.nix {inherit pkgs;};
 
-    mw-libraries = pkgs.callPackage ./metroskrew/mw-libraries.nix {inherit pkgs;};
+    mw-libraries-packages = pkgs.callPackage ./metroskrew/mw-libraries.nix {inherit pkgs;};
 
+    pokecrystal = pkgs.callPackage ./pokecrystal/pokecrystal.nix {inherit pkgs rgbds;};
     pokegold = pkgs.callPackage ./pokegold/pokegold.nix {inherit pkgs rgbds;};
-    pokeheartgold = pkgs.callPackage ./pokeheartgold/pokeheartgold.nix {inherit pkgs metroskrew mw-libraries;};
-    pokeplatinum = pkgs.callPackage ./pokeplatinum/pokeplatinum.nix {inherit pkgs metroskrew mw-libraries;};
+    pokeheartgold = pkgs.callPackage ./pokeheartgold/pokeheartgold.nix {inherit pkgs metroskrew mw-libraries-packages;};
+    pokeplatinum = pkgs.callPackage ./pokeplatinum/pokeplatinum.nix {inherit pkgs metroskrew mw-libraries-packages;};
     pokeyellow = pkgs.callPackage ./pokeyellow/pokeyellow.nix {inherit pkgs rgbds;};
     pokered = pkgs.callPackage ./pokered/pokered.nix {inherit pkgs rgbds;};
 
   in {
 
     packages."${system}" = {
-
-      # libraries
-      inherit rgbds metroskrew mw-libraries;
-
-      # pokegold
-      pokegold = pokegold.pokegold;
-      pokesilver = pokegold.pokesilver;
-      pokegold-debug = pokegold.pokegold-debug;
-      pokesilver-debug = pokegold.pokesilver-debug;
-
-      # pokeheartgold
-      pokeheartgold = pokeheartgold.pokeheartgold;
-      pokesoulsilver = pokeheartgold.pokesoulsilver;
-
-      # pokeplatinum
-      pokeplatinum = pokeplatinum.pokeplatinum;
-
-      # pokeyellow
-      pokeyellow = pokeyellow.pokeyellow;
-      pokeyellow-debug = pokeyellow.pokeyellow-debug;
-
-      # pokered
-      pokered = pokered.pokered;
-      pokeblue = pokered.pokeblue;
-      pokeblue-debug = pokered.pokeblue-debug;
-
-    };
+      inherit rgbds metroskrew;
+    }
+      // mw-libraries-packages
+      // pokecrystal
+      // pokegold
+      // pokeheartgold
+      // pokeplatinum
+      // pokeyellow
+      // pokered
+      ;
 
     devShells."${system}" = {
 

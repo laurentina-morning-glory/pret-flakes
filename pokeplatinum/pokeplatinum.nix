@@ -3,7 +3,7 @@
 {
   pkgs ? import <nixpkgs> {},
   metroskrew ? pkgs.callPackage ../metroskrew/metroskrew.nix {inherit pkgs;},
-  mw-libraries ? pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;},
+  mw-libraries-packages ? pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;},
 }: let
 
   meson = pkgs.fetchFromGitHub {
@@ -75,16 +75,20 @@
     hash = "sha256-AUWCsyjhNnHepk/LSaeV5wFCNgIWpQUhK4BFE0eBs7U=";
   };
 
+  mw-libraries = mw-libraries-packages.mw-libraries-all-ds;
+
+  src-rev = "49f78f35ccd8c6880e189d23a630eef2976c44ac";
+
   src = pkgs.fetchFromGitHub {
     owner = "pret";
     repo = "pokeplatinum";
-    rev = "49f78f35ccd8c6880e189d23a630eef2976c44ac";
+    rev = src-rev;
     hash = "sha256-wzcyhDPhE6XKzKwf9c5vvOI56E+OY/lXm+eGxh9WgYo=";
   };
 
   pokeplatinum = pkgs.stdenv.mkDerivation {
     pname = "pokeplatinum";
-    version = "49f78f3";
+    version = src-rev;
     src = src;
 
     doCheck = true;

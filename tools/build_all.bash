@@ -9,8 +9,14 @@ nix-build() {
 installables=(
 
 	'.#metroskrew'
-	'.#mw-libraries'
 	'.#rgbds'
+	'.#mw-libraries-all'
+
+	'.#pokecrystal'
+	'.#pokecrystal11'
+	'.#pokecrystal-au'
+	'.#pokecrystal-debug'
+	'.#pokecrystal11-debug'
 
 	'.#pokegold'
 	'.#pokesilver'

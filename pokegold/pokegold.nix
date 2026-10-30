@@ -44,12 +44,12 @@
   });
 
   pokegold-debug = pkgs.stdenv.mkDerivation (common // {
-    pname = "pokegold";
+    pname = "pokegold-debug";
     buildPhase = "make pokegold_debug.gbc";
   });
 
   pokesilver-debug = pkgs.stdenv.mkDerivation (common // {
-    pname = "pokesilver";
+    pname = "pokesilver-debug";
     buildPhase = "make pokesilver_debug.gbc";
   });
 
