@@ -24,3 +24,10 @@ No source code is contained in this repository. This repository only contains bu
 | pret/pokered                                                | `pokeblue`            |
 | pret/pokered                                                | `pokeblue-debug`      |
 | [pret/pokeyellow](https://github.com/pret/pokeyellow)       | `pokeyellow`          |
+
+The following repositories do not have a flake because their build process is not self-contained:
+
+- [pret/pokerevo](https://github.com/pret/pokerevo)
+- [pret/pokestadium](https://github.com/pret/pokestadium)
+- [pret/pokestadiumgs](https://github.com/pret/pokestadiumgs)
+
