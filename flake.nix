@@ -21,8 +21,9 @@
     pokegold = pkgs.callPackage ./pokegold/pokegold.nix {inherit pkgs rgbds;};
     pokeheartgold = pkgs.callPackage ./pokeheartgold/pokeheartgold.nix {inherit pkgs metroskrew mw-libraries-packages;};
     pokeplatinum = pkgs.callPackage ./pokeplatinum/pokeplatinum.nix {inherit pkgs metroskrew mw-libraries-packages;};
-    pokeyellow = pkgs.callPackage ./pokeyellow/pokeyellow.nix {inherit pkgs rgbds;};
     pokered = pkgs.callPackage ./pokered/pokered.nix {inherit pkgs rgbds;};
+    pokeruby = pkgs.callPackage ./pokeruby/pokeruby.nix {inherit pkgs;};
+    pokeyellow = pkgs.callPackage ./pokeyellow/pokeyellow.nix {inherit pkgs rgbds;};
 
   in {
 
@@ -34,8 +35,9 @@
       // pokegold
       // pokeheartgold
       // pokeplatinum
-      // pokeyellow
       // pokered
+      // pokeruby
+      // pokeyellow
       ;
 
     devShells."${system}" = {
@@ -56,6 +58,10 @@
 
       pokered = pkgs.mkShell {
         inputsFrom = [ pokered.pokered ];
+      };
+
+      pokeruby = pkgs.mkShell {
+        inputsFrom = [ pokeruby.pokeruby ];
       };
 
     };

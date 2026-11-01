@@ -24,6 +24,11 @@ No source code is contained in this repository. This repository only contains bu
 | pret/pokered                                                | `pokeblue`            |
 | pret/pokered                                                | `pokeblue-debug`      |
 | [pret/pokeyellow](https://github.com/pret/pokeyellow)       | `pokeyellow`          |
+| [pret/pokeruby](https://github.com/pret/pokeruby)           | `ruby-rev2`           |
+| pret/pokeruby                                               | `sapphire-rev2`       |
+| pret/pokeruby                                               | `ruby-sapphire-all`   |
+
+This table is not exhaustive. Use `nix flake show` to see all packages.
 
 The following repositories do not have a flake because their build process is not self-contained:
 

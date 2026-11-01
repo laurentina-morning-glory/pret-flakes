@@ -32,6 +32,8 @@ installables=(
 	'.#pokeblue'
 	'.#pokeblue-debug'
 
+	'.#ruby-sapphire-all'
+
 	'.#pokeyellow'
 	'.#pokeyellow-debug'
 
