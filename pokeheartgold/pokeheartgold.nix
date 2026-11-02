@@ -3,7 +3,7 @@
 {
   pkgs ? import <nixpkgs> {},
   metroskrew ? pkgs.callPackage ../metroskrew/metroskrew.nix {inherit pkgs;},
-  mw-libraries-packages ? pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;},
+  mw-libraries-all-ds ? (pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;}).mw-libraries-all-ds,
 }: let
 
   nitro-dwc = pkgs.fetchFromGitHub {
@@ -58,7 +58,7 @@
     hash = "sha256-AUWCsyjhNnHepk/LSaeV5wFCNgIWpQUhK4BFE0eBs7U=";
   };
 
-  mw-libraries = mw-libraries-packages.mw-libraries-all-ds;
+  mw-libraries = mw-libraries-all-ds;
 
   src_repo = "pokeheartgold";
   src_rev = "6988158691eb6178cff697cda0428045ddcba5fb";
@@ -169,4 +169,8 @@
   });
 
 in
-  {inherit pokeheartgold pokesoulsilver;}
+  {
+    derivations = {
+      inherit pokeheartgold pokesoulsilver;
+    };
+  }

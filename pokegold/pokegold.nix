@@ -54,5 +54,8 @@
   });
 
 in
-  {inherit pokegold pokesilver pokegold-debug pokesilver-debug;}
-
+  {
+    derivations = {
+      inherit pokegold pokesilver pokegold-debug pokesilver-debug;
+    };
+  }

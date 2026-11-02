@@ -127,27 +127,29 @@
 
 in
   {
-    inherit
-      mw-libraries-dsi-1-6-sp1
-      mw-libraries-dsi-1-3
-      mw-libraries-dsi-1-2
-      mw-libraries-dsi-1-1p1
-      mw-libraries-dsi-1-1
-      mw-libraries-ds-2-0-sp2p3
-      mw-libraries-ds-2-0-sp2
-      mw-libraries-ds-2-0-sp1p2
-      mw-libraries-ds-2-0-sp1
-      mw-libraries-ds-2-0-p4
-      mw-libraries-ds-2-0-p2
-      mw-libraries-ds-2-0-base
-      mw-libraries-ds-1-3-sp4
-      mw-libraries-ds-1-3-sp3
-      mw-libraries-ds-1-3-sp2
-      mw-libraries-ds-1-3-base-b73
-      mw-libraries-ds-1-2
+    derivations = {
+      inherit
+        mw-libraries-dsi-1-6-sp1
+        mw-libraries-dsi-1-3
+        mw-libraries-dsi-1-2
+        mw-libraries-dsi-1-1p1
+        mw-libraries-dsi-1-1
+        mw-libraries-ds-2-0-sp2p3
+        mw-libraries-ds-2-0-sp2
+        mw-libraries-ds-2-0-sp1p2
+        mw-libraries-ds-2-0-sp1
+        mw-libraries-ds-2-0-p4
+        mw-libraries-ds-2-0-p2
+        mw-libraries-ds-2-0-base
+        mw-libraries-ds-1-3-sp4
+        mw-libraries-ds-1-3-sp3
+        mw-libraries-ds-1-3-sp2
+        mw-libraries-ds-1-3-base-b73
+        mw-libraries-ds-1-2
 
-      mw-libraries-all-dsi
-      mw-libraries-all-ds
-      mw-libraries-all
-      ;
+        mw-libraries-all-dsi
+        mw-libraries-all-ds
+        mw-libraries-all
+        ;
+    };
   }

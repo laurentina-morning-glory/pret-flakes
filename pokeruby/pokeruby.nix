@@ -169,24 +169,25 @@
   };
 
 in
-{
-  inherit
-    ruby
-    ruby-debug
-    ruby-rev1
-    ruby-rev2
-    sapphire
-    sapphire-debug
-    sapphire-rev1
-    sapphire-rev2
-    ruby-de
-    ruby-de-debug
-    ruby-de-rev1
-    sapphire-de
-    sapphire-de-debug
-    sapphire-de-rev1
+  {
+    derivations = {
+      inherit
+        ruby
+        ruby-debug
+        ruby-rev1
+        ruby-rev2
+        sapphire
+        sapphire-debug
+        sapphire-rev1
+        sapphire-rev2
+        ruby-de
+        ruby-de-debug
+        ruby-de-rev1
+        sapphire-de
+        sapphire-de-debug
+        sapphire-de-rev1
 
-    ruby-sapphire-all
-    ;
-}
-
+        ruby-sapphire-all
+        ;
+    };
+  }

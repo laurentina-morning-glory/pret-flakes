@@ -49,4 +49,8 @@
   });
 
 in
-  {inherit pokered pokeblue pokeblue-debug;}
+  {
+    derivations = {
+      inherit pokered pokeblue pokeblue-debug;
+    };
+  }

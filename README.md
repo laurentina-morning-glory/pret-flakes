@@ -27,6 +27,8 @@ No source code is contained in this repository. This repository only contains bu
 | [pret/pokeruby](https://github.com/pret/pokeruby)           | `ruby-rev2`           |
 | pret/pokeruby                                               | `sapphire-rev2`       |
 | pret/pokeruby                                               | `ruby-sapphire-all`   |
+| [pret/poketcg](https://github.com/pret/poketcg)             | `poketcg`             |
+| [pret/poketcg2](https://github.com/pret/poketcg2)           | `poketcg2`            |
 
 This table is not exhaustive. Use `nix flake show` to see all packages.
 

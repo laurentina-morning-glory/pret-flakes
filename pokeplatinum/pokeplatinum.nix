@@ -3,7 +3,7 @@
 {
   pkgs ? import <nixpkgs> {},
   metroskrew ? pkgs.callPackage ../metroskrew/metroskrew.nix {inherit pkgs;},
-  mw-libraries-packages ? pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;},
+  mw-libraries-all-ds ? (pkgs.callPackage ../metroskrew/mw-libraries.nix {inherit pkgs;}).derivations.mw-libraries-all-ds,
 }: let
 
   meson = pkgs.fetchFromGitHub {
@@ -75,7 +75,7 @@
     hash = "sha256-AUWCsyjhNnHepk/LSaeV5wFCNgIWpQUhK4BFE0eBs7U=";
   };
 
-  mw-libraries = mw-libraries-packages.mw-libraries-all-ds;
+  mw-libraries = mw-libraries-all-ds;
 
   src-rev = "49f78f35ccd8c6880e189d23a630eef2976c44ac";
 
@@ -216,4 +216,9 @@
   };
 
 in
-  {inherit pokeplatinum shell;}
+  {
+    inherit shell;
+    derivations = {
+      inherit pokeplatinum;
+    };
+  }

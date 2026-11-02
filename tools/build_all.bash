@@ -32,10 +32,14 @@ installables=(
 	'.#pokeblue'
 	'.#pokeblue-debug'
 
-	'.#ruby-sapphire-all'
+	'.#poketcg'
+
+	'.#poketcg2'
 
 	'.#pokeyellow'
 	'.#pokeyellow-debug'
+
+	'.#ruby-sapphire-all'
 
 );
 

@@ -44,5 +44,8 @@
   });
 
 in
-  {inherit pokeyellow pokeyellow-debug;}
-
+  {
+    derivations = {
+      inherit pokeyellow pokeyellow-debug;
+    };
+  }

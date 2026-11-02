@@ -59,4 +59,8 @@
   });
 
 in
-  {inherit pokecrystal pokecrystal11 pokecrystal-au pokecrystal-debug pokecrystal11-debug;}
+  {
+    derivations = {
+      inherit pokecrystal pokecrystal11 pokecrystal-au pokecrystal-debug pokecrystal11-debug;
+    };
+  }
