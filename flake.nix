@@ -22,6 +22,7 @@
     pokecrystal = pkgs.callPackage ./pokecrystal/pokecrystal.nix {inherit pkgs rgbds;};
     pokegold = pkgs.callPackage ./pokegold/pokegold.nix {inherit pkgs rgbds;};
     pokeheartgold = pkgs.callPackage ./pokeheartgold/pokeheartgold.nix {inherit pkgs metroskrew mw-libraries-all-ds;};
+    pokepinball = pkgs.callPackage ./pokepinball/pokepinball.nix {inherit pkgs rgbds;};
     pokeplatinum = pkgs.callPackage ./pokeplatinum/pokeplatinum.nix {inherit pkgs metroskrew mw-libraries-all-ds;};
     pokered = pkgs.callPackage ./pokered/pokered.nix {inherit pkgs rgbds;};
     pokeruby = pkgs.callPackage ./pokeruby/pokeruby.nix {inherit pkgs;};
@@ -38,6 +39,7 @@
       // pokecrystal.derivations
       // pokegold.derivations
       // pokeheartgold.derivations
+      // pokepinball.derivations
       // pokeplatinum.derivations
       // pokered.derivations
       // pokeruby.derivations

@@ -26,6 +26,8 @@ installables=(
 	'.#pokeheartgold'
 	'.#pokesoulsilver'
 
+	'.#pokepinball'
+
 	'.#pokeplatinum'
 
 	'.#pokered'
